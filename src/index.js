@@ -1,6 +1,7 @@
-import  React from 'react';
-import ReactDOM from 'react-dom'
-import searchBar from './components/search_bar';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import SearchBar from './components/search_bar';
 
 const API_KEY = 'AIzaSyB0IELbwVklPrhdJPOyUJzfNT_Ei82Xbuk';
 
@@ -8,7 +9,7 @@ const API_KEY = 'AIzaSyB0IELbwVklPrhdJPOyUJzfNT_Ei82Xbuk';
 const App = () => {
   return (
   <div>
-    <searchBar />
+    <SearchBar />
   </div>
 );
 }
