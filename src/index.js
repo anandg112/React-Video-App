@@ -6,7 +6,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyB0IELbwVklPrhdJPOyUJzfNT_Ei82Xbuk';
 
-// Create a new component. This component should produce some HTML
+// Create a new component.
 class App extends Component {
   constructor(props){
     super(props);
@@ -16,7 +16,11 @@ class App extends Component {
       selectedVideo: null
     };
 
-    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    this.videoSearch('Bali 4k');
+  }
+
+  videoSearch(term) {
+    YTSearch({key: API_KEY, term}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
@@ -27,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
@@ -36,7 +40,6 @@ class App extends Component {
     );
   }
 }
-
 
 //Take this component's generated HTML and put it on the page(in the DOM)
 ReactDOM.render(<App />, document.querySelector('.container'));
