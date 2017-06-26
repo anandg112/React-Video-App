@@ -1,4 +1,4 @@
-# ReduxSimpleStarter
+# React-based YouTube video player and search
 
 ### Getting Started
 
